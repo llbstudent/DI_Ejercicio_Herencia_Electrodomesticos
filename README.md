@@ -15,7 +15,7 @@ Sus atributos son:
 
 -peso. 
 
-* Indica que se podrán heredar.
+//Indica que se podrán heredar.
 
 •	Por defecto, el color será blanco, el consumo energético será F,
 	el precioBase es de 100 € y el peso de 5 kg. 
@@ -49,18 +49,28 @@ Los métodos que implementara serán:
 
 
 LETRA		PRECIO
+
 A		100 €
+
 B		80 €
+
 C		60 €
+
 D		50 €
+
 E		30 €
+
 F		10 €
 
 _______________________________
 TAMAÑO			PRECIO
+
 Entre 0 y 19 kg		10 €
+
 Entre 20 y 49 kg	50 €
+
 Entre 50 y 79 kg	80 €
+
 Mayor que 80 kg		100 €
 
 

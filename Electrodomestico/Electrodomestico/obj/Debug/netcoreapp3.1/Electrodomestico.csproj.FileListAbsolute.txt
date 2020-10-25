@@ -1,0 +1,13 @@
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\bin\Debug\netcoreapp3.1\Electrodomestico.exe
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\bin\Debug\netcoreapp3.1\Electrodomestico.deps.json
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\bin\Debug\netcoreapp3.1\Electrodomestico.runtimeconfig.json
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\bin\Debug\netcoreapp3.1\Electrodomestico.runtimeconfig.dev.json
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\bin\Debug\netcoreapp3.1\Electrodomestico.dll
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\bin\Debug\netcoreapp3.1\Electrodomestico.pdb
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\obj\Debug\netcoreapp3.1\Electrodomestico.csprojAssemblyReference.cache
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\obj\Debug\netcoreapp3.1\Electrodomestico.AssemblyInfoInputs.cache
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\obj\Debug\netcoreapp3.1\Electrodomestico.AssemblyInfo.cs
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\obj\Debug\netcoreapp3.1\Electrodomestico.csproj.CoreCompileInputs.cache
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\obj\Debug\netcoreapp3.1\Electrodomestico.dll
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\obj\Debug\netcoreapp3.1\Electrodomestico.pdb
+C:\Users\laura\OneDrive\Escritorio\DI_Ejercicio_Herencia_Electrodomesticos\Electrodomestico\Electrodomestico\obj\Debug\netcoreapp3.1\Electrodomestico.genruntimeconfig.cache

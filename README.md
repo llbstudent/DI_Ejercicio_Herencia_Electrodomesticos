@@ -1,6 +1,7 @@
 # DI_Ejercicio_Herencia_Electrodomesticos
 _____________
 PROFESSOR _ ÁLVARO LÓPEZ JURADO
+
 AUTHOR _ LAURA LUCENA BUENDIA
 _____________
 Crearemos una Clase llamada Electrodomestico con las siguientes características:
@@ -32,7 +33,7 @@ Los métodos que implementara serán:
 • precioFinal(): según el consumo energético, aumentara su precio, y según su tamaño, también. 
 	Esta es la lista de precios:
 
-LETRA	PRECIO
+LETRA		PRECIO
 A		100 €
 B		80 €
 C		60 €
@@ -41,7 +42,7 @@ E		30 €
 F		10 €
 
 _______________________________
-TAMAÑO				PRECIO
+TAMAÑO			PRECIO
 Entre 0 y 19 kg		10 €
 Entre 20 y 49 kg	50 €
 Entre 50 y 79 kg	80 €

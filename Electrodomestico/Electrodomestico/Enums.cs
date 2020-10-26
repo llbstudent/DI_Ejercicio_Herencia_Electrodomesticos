@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Electrodomestico
 {
+    /// <summary>
+    /// Usaremos 'enums' en vez de tipos rpimitivos para que no podamos introducir una de las opciones que no sean estas
+    /// </summary>
     class Enums
     {
         

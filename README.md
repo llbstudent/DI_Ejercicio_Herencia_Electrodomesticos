@@ -57,7 +57,8 @@ Crearemos una clase llamada Lavadora  (hererada de la anterior) con las siguient
 Los constructores que se implementaran serán:
 *	Un constructor por defecto.
 *	Un constructor con el precio y peso. El resto por defecto.
-*	Un constructor con la carga y el resto de atributos heredados. Recuerda que debes llamar al constructor de la clase padre.
+*	Un constructor con la carga y el resto de atributos heredados. 
+Recuerda que debes llamar al constructor de la clase padre.
 
 Los métodos que se implementara serán:
 *	Método get de carga.
@@ -70,7 +71,8 @@ Crearemos una clase llamada Television (heredada de la clase electrodomestico) c
 *	Los constructores que se implementaran serán:
 *	Un constructor por defecto.
 *	Un constructor con el precio y peso. El resto por defecto.
-*	Un constructor con la resolución, sintonizador TDT y el resto de atributos heredados. Recuerda que debes llamar al constructor de la clase padre.
+*	Un constructor con la resolución, sintonizador TDT y el resto de atributos heredados. 
+	Recuerda que debes llamar al constructor de la clase padre.
 
 Los métodos que se implementara serán:
 *	Método get de resolución y sintonizador TDT.
@@ -86,3 +88,7 @@ El programa hará lo siguiente:
 
 .
 Por ejemplo, si tenemos un Electrodomestico con un precio final de 300, una lavadora de 200 y una televisión de 500, el resultado final sera de 1000 (300+200+500) para electrodomésticos, 200 para lavadora y 500 para televisión.
+
+//ARREGLAR DOUBLE
+//ARREGLAR ÚLTIMO MÉTODO
+// typeof : https://stackoverflow.com/questions/983030/type-checking-typeof-gettype-or-is

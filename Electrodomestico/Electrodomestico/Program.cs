@@ -3,50 +3,147 @@ using System;
 
 namespace Electrodomestico
 {
+    /// <summary>
+    /// Con este programa practicaremos la herencia
+    /// Nos crearemos diferentes instancias de electrodomésticos, lo hemos preferido hacer de dos maneras:
+    /// -Manual: Para así poder probar varios métodos
+    /// -Predeterminada: Crearemos una lista por defecto para ver que el programa funciona correctamente 
+    /// 
+    /// Al final veremos un listado con los diferentes precios de los electrodomésticos
+    /// </summary>
     class Program
     {
+        //MAIN
         static void Main(string[] args)
         {
+            //Esto nos ayudará más adelante a poder mostrar por consola los símbolos especiales cómo el '€'
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
             //Creamos un array de Electrodomesticos de 10 posiciones.
             Electrodomestico[] misElectrodomesticos = new Electrodomestico[10];
 
-            //Asignamos a cada posición un objeto de las clases anteriores con los valores que deseemos.
-            //Podemos rellenarlo con valores predeterminados o manualmente
-            Console.WriteLine("*******************" +
-                "[1]-Predeterminado" +
-                "[2]-Manual" +
-                "*******************");
-            Console.Write("Seleccione cómo desea rellenar el vector de electrodomésticos (inserte número): ");
-            int opcionRellenoArray = Convert.ToInt32(Console.ReadLine());
+            //Booleano que nos ayudará durante la ejecución de las opciones
+            // Se pondrá a false si entra por alguno de los 'catch'
+            Boolean opcionMenuPrincipalCorrecta = true;
 
-            if(opcionRellenoArray == 1)
+            do
             {
+                opcionMenuPrincipalCorrecta = true;
+                //Capturaremos las Excepciones por si no se insertase bien las opciones u ocurrierá otro error inesperado
+                try
+                {
+                    //Asignamos a cada posición un objeto de las clases anteriores con los valores que deseemos.
+                    //Podemos rellenarlo con valores predeterminados o manualmente
+                    Console.WriteLine("********  EJERCICIO ELECTRODPOMÉSTICOS - HERENCIA ********" +
+                        "\n[1]-Predeterminado" +
+                        "\n[2]-Manual" +
+                        "\n*********************************************");
+                    Console.Write("Seleccione cómo desea rellenar el vector de electrodomésticos (inserte número): ");
+                    int opcionRellenoArray = Convert.ToInt32(Console.ReadLine());
 
-            }else if(opcionRellenoArray == 2)
-            {
-                rellenarArrayElectrodomesticos(misElectrodomesticos);
-            }
-            
+                    if (opcionRellenoArray == 1)
+                    {
+                        misElectrodomesticos[0] = new Electrodomestico();
+                        misElectrodomesticos[1] = new Lavadora();
+                        misElectrodomesticos[2] = new Television();
+                        misElectrodomesticos[3] = new Electrodomestico(250.20, Enums.Colores.rojo, Enums.consumoEnergetico.A, 35.20);
+                        misElectrodomesticos[4] = new Lavadora(345.20, Enums.Colores.gris, Enums.consumoEnergetico.A, 72.60, 50.00);
+                        misElectrodomesticos[5] = new Television(450.20, Enums.Colores.negro, Enums.consumoEnergetico.B, 30.70, 42, true);
+                        misElectrodomesticos[6] = new Electrodomestico(120.20, Enums.Colores.azul, Enums.consumoEnergetico.A, 40.50);
+                        misElectrodomesticos[7] = new Lavadora(215.30, Enums.Colores.azul, Enums.consumoEnergetico.C, 52.25, 35.00);
+                        misElectrodomesticos[8] = new Television(750.25, Enums.Colores.gris, Enums.consumoEnergetico.A, 43.70, 45, true);
+                        misElectrodomesticos[9] = new Television(1050.30, Enums.Colores.negro, Enums.consumoEnergetico.A, 73.50, 50, true);
 
-            //recorremos el array y ejecutamos el método precioFinal()
-            ejecutarPrecioFinal(misElectrodomesticos);
+                    }
+                    else if (opcionRellenoArray == 2)
+                    {
+                        rellenarArrayElectrodomesticos(misElectrodomesticos);
+                    }
 
-            //Mostramos el precio de cada clase
+                    //recorremos el array y ejecutamos el método precioFinal()
+                    ejecutarPrecioFinal(misElectrodomesticos);
+                }
+                catch (FormatException e)
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n\n¡¡¡¡Inserte un formato correcto por favor!!!!\n");
+                    opcionMenuPrincipalCorrecta = false;
+                }
+                catch (NullReferenceException e)
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n\n¡¡¡Inserte un formato correcto por favor!!!\n");
+                    opcionMenuPrincipalCorrecta = false;
+                }
+                catch (Exception e) // Para que nos capture otra excepción, por si acaso ocurriese
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n" + e.Message);
+                    opcionMenuPrincipalCorrecta = false;
+                }
+            } while (!opcionMenuPrincipalCorrecta);//Fin de do-while Menu_Principal
+
             Console.ReadLine();
-        }
+
+        }//Fin MAIN
+
+
+
 
         //---------------------------
         //  MÉTODOS
         //---------------------------
         private static void ejecutarPrecioFinal(Electrodomestico[] elec)
         {
+            //Variables que nos ayudarán a sumar el precio final por cada tipo de electrodoméstico
+            double totalElec = 0;
+            double totalLavadoras = 0;
+            double totalTele = 0;
+            //Limpiamos la consola
             Console.Clear();
             Console.WriteLine("**************.:. LISTADO DE PRECIOS .:.**************");
+            //Primero obtenemos todos los electrodomésticos
+            Console.WriteLine("ELECTRODOMéSTICOS");
             for (int i = 0; i < elec.Length; i++)
             {
                 Console.WriteLine((1 + i) + "-Electrodoméstico " + elec[i].precioFinal());
+                totalElec += elec[i].precioFinal();
             }
+
+            //Obtenemos todos los electrodomésticos que son lavadoras
+            Console.WriteLine("\nLAVADORAS");
+            for (int i = 0; i < elec.Length; i++)
+            {
+                if(elec[i].GetType() == typeof(Lavadora))
+                {
+                    Console.WriteLine((1 + i) + "-Lavadora " + elec[i].precioFinal());
+                    totalLavadoras += elec[i].precioFinal();
+                }                
+            }
+
+            //Obtenemos todos los electrodomésticos que son televisores
+            Console.WriteLine("\nTELEVISORES");
+            for (int i = 0; i < elec.Length; i++)
+            {
+                if(elec[i].GetType() == typeof(Television))
+                {
+                    Console.WriteLine((1 + i) + "-Televisor " + elec[i].precioFinal());
+                    totalTele += elec[i].precioFinal();
+                }                
+            }
+
+            
+            //Precio Final por cada tipo de electrodoméstico
+            // Math.Round hará que nos limite los decimales a sólo '2'
+            Console.WriteLine("\n\n******* Precios Totales *******" +
+                "\nElectrodomésticos: {0}€" +
+                "\nLavadoras: {1}€" +
+                "\nTelevisiones {2}€", Math.Round(totalElec, 2),
+                Math.Round(totalLavadoras, 2), 
+                Math.Round(totalTele,2));
         }
+
+
 
         /// <summary>
         /// Método en el que rellenaremos el array de electrodomésticos al gusto
@@ -54,14 +151,16 @@ namespace Electrodomestico
         /// <param name="misElectrodomesticos"></param>
         private static void rellenarArrayElectrodomesticos(Electrodomestico[] elect)
         {
-            Console.WriteLine("\n*******************  EJERCICIO ELECTRODPOMÉSTICOS - HERENCIA *******************" +
+            //Recorremos las 10 posiciones del array
+            for (int i=0; i < elect.Length; i++)
+            {                
+                Console.Clear();
+                Console.WriteLine("\n*******************  EJERCICIO ELECTRODPOMÉSTICOS - HERENCIA *******************" +
                     "\n[1]-Electrodoméstico normal" +
                     "\n[2]-Lavadora" +
                     "\n[3]-Televisor" +
                     "\n*********************************************************************************");
 
-            for (int i=0; i < elect.Length; i++)
-            {
                 //Booleano que nos ayudará para que sólo nos deje introudcir estos 3 números
                 Boolean formatoCorrecto = true;
                 int opcionElec = 0;
@@ -102,6 +201,7 @@ namespace Electrodomestico
                             //Variable que nos ayudará a crear el electrodomésticos usando los diferentes constructores
                             int opcionCreacionElectrodomestico = Convert.ToInt32(Console.ReadLine());
 
+                            //Opción para usar los diferentes tipos de constructores de la clase Electrodomestico
                             switch (opcionCreacionElectrodomestico)
                             {
                                 case 1:
@@ -137,6 +237,7 @@ namespace Electrodomestico
                             //Variable que nos ayudará a crear la instancia de 'Lavadora' usando los diferentes constructores
                             int opcionCreacionLavadora = Convert.ToInt32(Console.ReadLine());
 
+                            //Opción para usar los diferentes tipos de constructores de la clase Lavadora
                             switch (opcionCreacionLavadora)
                             {
                                 case 1:
@@ -172,6 +273,7 @@ namespace Electrodomestico
                             //Variable que nos ayudará a crear la instancia de 'Television' usando los diferentes constructores
                             int opcionCreacionTelev = Convert.ToInt32(Console.ReadLine());
 
+                            //Opción para usar los diferentes tipos de constructores de la clase Television
                             switch (opcionCreacionTelev)
                             {
                                 case 1:
@@ -219,9 +321,9 @@ namespace Electrodomestico
             Console.Clear();
             Console.WriteLine("Ha elegido {0}", tipoElec);
             Console.Write("Inserte el precio-Base del producto: ");
-            Double precio = Convert.ToDouble(Console.ReadLine());
+            Double precio = double.Parse(Console.ReadLine());
             Console.Write("Inserte el peso del producto: ");
-            Double peso = Convert.ToDouble(Console.ReadLine());
+            Double peso = double.Parse(Console.ReadLine());
 
             switch (tipoElec)
             {
@@ -256,9 +358,9 @@ namespace Electrodomestico
             Console.Clear();
             Console.WriteLine("Ha elegido {0}", tipoElec);
             Console.Write("Inserte el precio-Base del producto: ");
-            Double precio = Convert.ToDouble(Console.ReadLine());
+            Double precio = double.Parse(Console.ReadLine());
             Console.Write("Inserte el peso del producto: ");
-            Double peso = Convert.ToDouble(Console.ReadLine());
+            Double peso = double.Parse(Console.ReadLine());
 
             //Bucle que nos ayudará a introducir correctamente los valores del color y del consumo energético
             do
@@ -283,7 +385,7 @@ namespace Electrodomestico
 
                         case "lavadora":
                             Console.Write("Inserte los kilos de la carga de la lavadora: ");
-                            Double carga = Convert.ToDouble(Console.ReadLine());
+                            Double carga = double.Parse(Console.ReadLine());
                             Lavadora l = new Lavadora(precio, Electrodomestico.obtenerColor(color), Electrodomestico.obtenerConsumoEnergetico(consumo), peso, carga);
                             return l;
 
